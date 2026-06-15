@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>多智能体共享记忆原型系统</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="topbar">
+        <div>
+          <p class="eyebrow">Course Prototype</p>
+          <h1>多智能体协作通信与共享记忆</h1>
+        </div>
+        <div class="system-badge">
+          <span class="pulse"></span>
+          FastAPI + SQLite + Web
+        </div>
+      </section>
+
+      <section class="workspace">
+        <aside class="control-panel">
+          <div class="panel-header">
+            <h2>任务输入</h2>
+            <span>3-Agent Pipeline</span>
+          </div>
+          <textarea id="taskInput" rows="5">整理一份微服务架构设计文档</textarea>
+          <label class="toggle">
+            <input id="useMemory" type="checkbox" checked />
+            <span>启用共享记忆复用</span>
+          </label>
+          <div class="quick-tasks">
+            <button data-task="整理一份微服务架构设计文档">架构文档</button>
+            <button data-task="制定一次前后端开发分工方案">开发分工</button>
+            <button data-task="生成一个答辩 PPT 大纲">PPT 大纲</button>
+            <button data-task="帮我整理微服务架构文档目录">相似架构任务</button>
+          </div>
+          <button id="runButton" class="primary">运行协作流程</button>
+          <p class=”hint”>建议先运行一次”架构文档”，再运行”相似架构任务”，观察共享记忆命中。</p>
+        </aside>
+
+        <section class="main-grid">
+          <div class="card span-2">
+            <div class="panel-header">
+              <h2>Agent 状态</h2>
+              <span id="runStatus">等待任务</span>
+            </div>
+            <div id="agentGrid" class="agent-grid"></div>
+          </div>
+
+          <div class="card">
+            <div class="panel-header">
+              <h2>共享记忆命中</h2>
+              <span id="memoryLabel">未运行</span>
+            </div>
+            <div id="memoryHit" class="memory-hit empty">
+              <strong>尚无结果</strong>
+              <p>运行任务后，这里会显示是否复用历史经验。</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="panel-header">
+              <h2>实验指标</h2>
+              <span>Baseline vs Actual</span>
+            </div>
+            <div id="metrics" class="metrics"></div>
+          </div>
+
+          <div class="card span-2">
+            <div class="panel-header">
+              <h2>消息通信日志</h2>
+              <span id="messageCount">0 条消息</span>
+            </div>
+            <div id="messageLog" class="message-log"></div>
+          </div>
+
+          <div class="card">
+            <div class="panel-header">
+              <h2>执行结果</h2>
+              <span>Review Output</span>
+            </div>
+            <pre id="resultBox" class="result-box">等待 Agent 产出结果...</pre>
+          </div>
+
+          <div class="card">
+            <div class="panel-header">
+              <h2>共享记忆库</h2>
+              <span id="memoryCount">0 条</span>
+            </div>
+            <div id="memoryList" class="memory-list"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

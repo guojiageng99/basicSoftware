@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+.venv/
+venv/
+env/
+
+# pytest
+.pytest_cache/
+
+# SQLite database (generated at runtime)
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary/debug files
+check_pptx.txt
+temp_title.txt
+test.pptx
+_extracted_*.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Claude Code
+.claude/
