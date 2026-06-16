@@ -24,6 +24,9 @@ temp_title.txt
 test.pptx
 _extracted_*.txt
 
+# Word temp files
+~$*.docx
+
 # IDE
 .vscode/
 .idea/
